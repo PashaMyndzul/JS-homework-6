@@ -2,7 +2,9 @@
 function printTimeout(str, n) {
     const timeNumber = n * 1000;
     setTimeout( () => { 
+        
         console.log (str) ; }, timeNumber); 
+        
 }
 printTimeout('hello', 5);
 
@@ -23,9 +25,10 @@ function bombTimer(str, time) {
     }, 1000);
     setTimeout(function () {
         clearInterval(timer);
-        alert(str);
-    }, time * 1000);
+        console.log(str);
+    }, time * 1000 + 999);
     return (' RUN ): ');
+    
 }
 //Task 4
 function factorial(n) {
@@ -45,8 +48,8 @@ function bombTimer(str, time) {
     }, 1000);
     setTimeout(function () {
         clearInterval(timer);
-        alert(str);
-    }, time * 1000);
+        console.log(str);
+    }, time * 1000 + 999);
     return (' RUN ): ');
 }
 //Task 6
@@ -138,5 +141,7 @@ const arr = [
   { name: 'Luce', birthday: '1999-2-22' }
 ];
 filterUsersByMonth(arr, 2)
+
+
 
 
