@@ -125,45 +125,12 @@ function printTimeout(str, n) {
   usersToObject(usersWithId);
   
   //Task 11
-  const users = [{
-      name: 'John',
-      birthday: '1999-6-12'
-    },
-    {
-      name: 'Bill',
-      birthday: '2005-5-19'
-    },
-    {
-      name: 'Carol',
-      birthday: '2003-10-11'
-    },
-    {
-      name: 'Luce',
-      birthday: '1992-11-22'
-    }
-  ];
-  
-  function getAdultNames(users) {
-    let usersAge = [];
-    for (let i = 0; i < users.length; i++) {
-      let date = users[i].birthday;
-      let age = ((new Date().getTime() - new Date(date)) / (24 * 3600 * 365.25 * 1000)) | 0;
-  
-      if (age >= 18) {
-        usersAge.push(users[i].name + ' ' + age);
-  
-      }
-    }
-    return usersAge.join(',');
-  }
-  getAdultNames(users)
-  //Task 12
   
   function filterUsersByMonth(arr, month) {
     let rezult = [];
     for (let i = 0; i < arr.length; i++) {
       let data = arr[i].birthday;
-      let usersMonths = new Date(data).getMonth() + 1;
+      let usersMonths = new Date(data).getMonth();
       if (usersMonths == month) {
         rezult.push(arr[i]);
       }
@@ -188,4 +155,38 @@ function printTimeout(str, n) {
     }
   ];
   filterUsersByMonth(arr, 2)
+  
+  //Task 12
+  
+  const users = [{
+      name: 'John',
+      birthday: '1999-6-12'
+    },
+    {
+      name: 'Bill',
+      birthday: '2005-5-19'
+    },
+    {
+      name: 'Carol',
+      birthday: '2003-10-11'
+    },
+    {
+      name: 'Luce',
+      birthday: '2000-11-22'
+    }
+  ];
+  
+  function getAdultNames(users) {
+    let usersAge = [];
+    for (let i = 0; i < users.length; i++) {
+      let date = users[i].birthday;
+      let age = new Date().getFullYear() - new Date(date).getFullYear();
+      if (age >= 18) {
+        usersAge.push(users[i].name + ' ' + age);
+  
+      }
+    }
+    return usersAge.join(',');
+  }
+  getAdultNames(users)
   
